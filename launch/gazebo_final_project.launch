@@ -36,4 +36,15 @@
   -model $(arg robot_name)"
   respawn="false" output="screen"/>
 
+  <!-- Broadcast TF values for all fixed elements in the URDF description tree such as the IMU -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <!-- Broadcast TF values for all moving elements in the URDF description tree such as wheels -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Determine whether to run Rviz or not & set Rviz config file-->
+  <arg name="use_rviz" default="false" />
+  <arg name="rvizconfig" default="$(find final_project)/rviz/final_project.rviz"/>
+  <!-- Launching Rviz -->
+  <node if="$(arg use_rviz)" name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(arg rvizconfig)"/>
+
 </launch>
