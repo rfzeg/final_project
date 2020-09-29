@@ -461,6 +461,12 @@
       <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
       <headingDrift>0.005</headingDrift>
       <headingGaussianNoise>0.005</headingGaussianNoise>
+      <headingDriftFrequency>0.0</headingDriftFrequency>
+      <headingOffset>0.0</headingOffset>
+      <rateDriftFrequency>0 0 0</rateDriftFrequency>
+      <rateOffset>0 0 0</rateOffset>
+      <accelDriftFrequency>0 0 0</accelDriftFrequency>
+      <accelOffset>0 0 0</accelOffset>
     </plugin>
   </gazebo>
 
@@ -1121,4 +1127,65 @@
          <inertia ixx="0.001152600" ixy="0.0" ixz="0.0" iyy="0.000148934" iyz="0.0" izz="0.001154654" />
       </inertial>
    </link>
+     <!-- ANTENNA GPS -->
+  <joint name="gps_joint" type="fixed">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="-0.05 0 0.475"/>
+    <parent link="base_link"/>
+    <child link="gps_base_link"/>
+  </joint>
+  <link name="gps_base_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="gps_color">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <cylinder length="0.15" radius="0.005" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.15" radius="0.005" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="gps_base_link">
+    <material>Gazebo/White</material>
+    <gravity>true</gravity>
+  </gazebo>
+  <gazebo>
+    <plugin filename="libhector_gazebo_ros_gps.so" name="gps_controller">
+      <alwaysOn>1</alwaysOn>
+      <updateRate>5</updateRate>
+      <bodyName>gps_base_link</bodyName>
+      <!-- must be the link of the gps device, not the base_link or base_footprint -->
+      <frameId>/gps_base_link</frameId>
+      <topicName>fix</topicName>
+      <!-- Robotnik position at Fuente del Jarro -->
+      <referenceLatitude>39.5080331</referenceLatitude>
+      <referenceLongitude>-0.4619816</referenceLongitude>
+      <!-- To set heading in ENU orientation (degrees) -->
+      <referenceHeading>90</referenceHeading>
+      <velocityTopicName>fix_velocity</velocityTopicName>
+      <offset>0 0 0</offset>
+      <drift>0.0 0.0 0.0</drift>
+      <!--<drift>0.0001 0.0001 0.0001</drift>-->
+      <!--<drift>0.3 0.3 0.3</drift>-->
+      <driftFrequency>0.0 0.0 0.0</driftFrequency>
+      <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
+      <!--<gaussianNoise>0.00001 0.00001 0.00001</gaussianNoise>-->
+      <velocityDrift>0.00001 0.00001 0.00001</velocityDrift>
+      <!--<velocityGaussianNoise>0.1 0.1 0.1</velocityGaussianNoise>-->
+      <velocityDriftFrequency>0 0 0</velocityDriftFrequency>
+      <velocityGaussianNoise>0.00001 0.00001 0.00001</velocityGaussianNoise>
+      <velocityOffset>0 0 0</velocityOffset>
+    </plugin>
+  </gazebo>
 </robot>
