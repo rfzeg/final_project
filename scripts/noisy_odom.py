@@ -147,7 +147,7 @@ def broadcast_tf(odom_msg, pub_time):
     # broadcast tf for noisy_odom w.r.t odom
     noisy_odom_transform = tf2_ros.TransformStamped()
     noisy_odom_transform.header.stamp = pub_time
-    noisy_odom_transform.header.frame_id = "noisy_wheel_odom"
+    noisy_odom_transform.header.frame_id = "wheel_odom"
     noisy_odom_transform.child_frame_id = "base_footprint"
 
     noisy_odom_transform.transform.translation = odom_msg.pose.pose.position

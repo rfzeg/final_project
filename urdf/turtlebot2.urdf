@@ -473,7 +473,7 @@
    <gazebo>
       <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
          <alwaysOn>true</alwaysOn>
-         <updateRate>20</updateRate>
+         <updateRate>50</updateRate>
          <publishTf>true</publishTf><!-- If true, advertize nav_msgs::Odometry on <odometryTopic> and publish it -->
          <leftJoint>wheel_right_joint</leftJoint>
          <rightJoint>wheel_left_joint</rightJoint>
@@ -481,11 +481,12 @@
          <wheelDiameter>0.070</wheelDiameter>
          <torque>5.0</torque>
          <commandTopic>/cmd_vel</commandTopic>
+         <!-- getting data form 'encoder' integration or getting data form gazebo 'world' -->
          <odometrySource>world</odometrySource> <!-- 'encoder' instead of 'world' is also possible -->
          <odometryTopic>/odom</odometryTopic> <!-- relative/name ,  /global/name  -->
          <odometryFrame>/odom</odometryFrame>
          <robotBaseFrame>/base_footprint</robotBaseFrame>
-         <publishOdomTF>false</publishOdomTF><!-- If both this and publishTf are true, send robotBaseFrame-to-odometryFrame transforms -->
+         <publishOdomTF>true</publishOdomTF><!-- If both this and publishTf are true, send robotBaseFrame-to-odometryFrame transforms -->
          <publishWheelJointState>true</publishWheelJointState>
         <!-- Set to true to publish transforms for the wheel links, defaults to false -->
          <publishWheelTF>false</publishWheelTF>
