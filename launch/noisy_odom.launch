@@ -3,7 +3,7 @@
 
 <launch>
 
-  <node pkg="final_project" type="noisy_odom.py" name="noisy_odom_node" output="screen">
+  <node pkg="final_project" type="noisy_odom.py" name="noisy_odometry" output="screen">
   </node>
 
 </launch>

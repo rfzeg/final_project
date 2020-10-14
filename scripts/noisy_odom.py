@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Modified version of the original from: Team Leonard, University of Birmingham Intelligent Robotics 2018
+Modified version of: noisy_odom.py, Team Leonard, University of Birmingham Intelligent Robotics 2018
 '''
 
 import rospy
@@ -12,6 +12,7 @@ from random import gauss
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point, Quaternion, Vector3
 from std_srvs.srv import Empty, EmptyResponse
+import tf2_ros
 
 # sl = standard deviation of the linear velocity Gaussian noise
 # sa = standard deviation of the angular velocity Gaussian noise
@@ -138,6 +139,22 @@ def add_noise(odom):
         # Set cl_odom to odom
         cl_odom = odom
 
+        # broadcast transform
+        if publish_tf:
+            broadcast_tf(odom, rospy.Time.now())
+
+def broadcast_tf(odom_msg, pub_time):
+    # broadcast tf for noisy_odom w.r.t odom
+    noisy_odom_transform = tf2_ros.TransformStamped()
+    noisy_odom_transform.header.stamp = pub_time
+    noisy_odom_transform.header.frame_id = "noisy_wheel_odom"
+    noisy_odom_transform.child_frame_id = "base_footprint"
+
+    noisy_odom_transform.transform.translation = odom_msg.pose.pose.position
+    noisy_odom_transform.transform.rotation = odom_msg.pose.pose.orientation
+
+    tf_broadcaster.sendTransform(noisy_odom_transform)
+
 def odometry_callback(odom):
     global pub
     rospy.logdebug("Got perfect odom: {} {}".format(odom.pose.pose.position.x, odom.pose.pose.position.y)) 
@@ -158,13 +175,20 @@ def clean_shutdown():
     rospy.loginfo("Shutting down noisy odometry node...")
 
 if __name__ == '__main__':
-    global pub, shutdown_flag
+    global pub, shutdown_flag, tf_broadcaster, publish_tf
     shutdown_flag = False
-    rospy.init_node('noisy_odom')
+    publish_tf = True
+    rospy.init_node('noisy_odometry')
 
     pub = rospy.Publisher('wheel_odom', Odometry, queue_size=1)
     rospy.Subscriber('odom', Odometry, odometry_callback)
     shutdown_service = rospy.Service('/noisy_odom/shutdown', Empty, shutdown_callback)
+    
+    tf_buffer = tf2_ros.Buffer()
+    tf_listener = tf2_ros.TransformListener(tf_buffer)
+    tf_broadcaster = tf2_ros.TransformBroadcaster()
+
+
     rospy.loginfo("Started noisy odometry publisher node")
     # cleanup on shutdown
     rospy.on_shutdown(clean_shutdown)
