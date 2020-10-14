@@ -890,5 +890,501 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+
+      <link name='concrete_barrier_l_0'>
+       <pose>17.5 13.85 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_l_00'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>4.6 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_l.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+     <link name='concrete_barrier_l_8'>
+       <pose>-17.5 13.85 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_l_08'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>4.6 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_l.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+
+    <!-- side -->
+    <link name='concrete_barrier_xl_1'>
+       <pose>19.9 8.92 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_xl_01'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+     <link name='concrete_barrier_xl_2'>
+       <pose>19.9 -1.09 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_xl_02'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <link name='concrete_barrier_l_10'>
+       <pose>19.9 -8.4 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_l_10'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>4.6 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_l.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <link name='concrete_barrier_m_9'>
+      <pose>19.9 -12.12 0.0 0 0 1.5708</pose>se>
+        <collision name='concrete_barrier_m_09'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_m.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <!-- side -->
+    <link name='concrete_barrier_xl_3'>
+      <pose>-19.9 8.92 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_xl_03'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+     <link name='concrete_barrier_xl_4'>
+       <pose>-19.9 -1.09 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_xl_04'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <link name='concrete_barrier_l_11'>
+       <pose>-19.9 -8.4 0.0 0 0 1.5708</pose>
+        <collision name='concrete_barrier_l_11'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>4.6 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_l.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <link name='concrete_barrier_m_10'>
+      <pose>-19.9 -12.12 0.0 0 0 1.5708</pose>se>
+        <collision name='concrete_barrier_m_10'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_m.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <!-- side -->
+     <link name='concrete_barrier_xl_5'>
+       <pose>15.02 -13.6 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_xl_05'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+     <link name='concrete_barrier_xl_6'>
+       <pose>5.01 -13.6 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_xl_06'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+       
+
+    <link name='concrete_barrier_xl_7'>
+       <pose>-5.01 -13.6 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_xl_07'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
+    <link name='concrete_barrier_xl_8'>
+       <pose>-15.02 -13.6 0.0 0 0 0</pose>
+        <collision name='concrete_barrier_xl_08'>
+          <pose frame=''>-0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.15 0.6</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tunnel/meshes/concrete_barrier_xl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+
       </model>
 </sdf>
