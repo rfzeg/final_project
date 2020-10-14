@@ -453,7 +453,7 @@
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
-      <bodyName>gyro_link</bodyName>
+      <bodyName>base_link</bodyName>
       <topicName>/mobile_base/sensors/imu_data_raw</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
@@ -474,7 +474,7 @@
       <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
          <alwaysOn>true</alwaysOn>
          <updateRate>20</updateRate>
-         <publishTf> true </publishTf>
+         <publishTf>true</publishTf><!-- If true, advertize nav_msgs::Odometry on <odometryTopic> and publish it -->
          <leftJoint>wheel_right_joint</leftJoint>
          <rightJoint>wheel_left_joint</rightJoint>
          <wheelSeparation>.230</wheelSeparation>
@@ -485,10 +485,10 @@
          <odometryTopic>/odom</odometryTopic> <!-- relative/name ,  /global/name  -->
          <odometryFrame>/odom</odometryFrame>
          <robotBaseFrame>/base_footprint</robotBaseFrame>
-         <publishOdomTF> true </publishOdomTF>
+         <publishOdomTF>false</publishOdomTF><!-- If both this and publishTf are true, send robotBaseFrame-to-odometryFrame transforms -->
          <publishWheelJointState>true</publishWheelJointState>
         <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-         <publishWheelTF>true</publishWheelTF>
+         <publishWheelTF>false</publishWheelTF>
          <wheelAcceleration> 0 </wheelAcceleration>
          <wheelTorque> 5.0 </wheelTorque>
          <legacyMode>true</legacyMode>
@@ -1163,24 +1163,29 @@
   <gazebo>
     <plugin filename="libhector_gazebo_ros_gps.so" name="gps_controller">
       <alwaysOn>1</alwaysOn>
-      <updateRate>5</updateRate>
-      <bodyName>gps_base_link</bodyName>
-      <!-- must be the link of the gps device, not the base_link or base_footprint -->
-      <frameId>/gps_base_link</frameId>
-      <topicName>fix</topicName>
-      <!-- Robotnik position at Fuente del Jarro -->
-      <referenceLatitude>39.5080331</referenceLatitude>
-      <referenceLongitude>-0.4619816</referenceLongitude>
+      <updateRate>30</updateRate>
+      <bodyName>base_link</bodyName>
+      <!-- in a real robot must be the link of the gps device, not the base_link or base_footprint -->
+      <frameId>base_link</frameId>
+      <topicName>/navsat/fix</topicName>
+      <!-- The reference point that corresponds to the origin of the gazebo frame -->
+      <referenceLatitude>49.9</referenceLatitude>
+      <referenceLongitude>8.9</referenceLongitude>
+      <referenceHeading>0</referenceHeading>
+      <referenceAltitude>0</referenceAltitude>
       <!-- To set heading in ENU orientation (degrees) -->
+      <!-- set to 90: IMU reads 0 facing magnetic north, not east -->
+      <!-- If set to 90 there is no need to set yaw_offset on navsat_transform_node -->
       <referenceHeading>90</referenceHeading>
       <velocityTopicName>fix_velocity</velocityTopicName>
       <offset>0 0 0</offset>
-      <drift>0.0 0.0 0.0</drift>
+      <drift>0.0001 0.0001 0.0001</drift>
       <!--<drift>0.0001 0.0001 0.0001</drift>-->
       <!--<drift>0.3 0.3 0.3</drift>-->
       <driftFrequency>0.0 0.0 0.0</driftFrequency>
       <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
       <!--<gaussianNoise>0.00001 0.00001 0.00001</gaussianNoise>-->
+      <gaussianNoise>0.00000000000000000001 0.00000000000000000001 0.00000000000000000001</gaussianNoise> <!-- this is std. dev. not var.-->
       <velocityDrift>0.00001 0.00001 0.00001</velocityDrift>
       <!--<velocityGaussianNoise>0.1 0.1 0.1</velocityGaussianNoise>-->
       <velocityDriftFrequency>0 0 0</velocityDriftFrequency>
