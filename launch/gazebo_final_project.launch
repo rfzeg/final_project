@@ -5,15 +5,15 @@
 <env name="GAZEBO_MODEL_PATH" value="$(find final_project)/world/" />
 
 <arg name="x_pos" default="0.0"/>
-<arg name="y_pos" default="0.0"/>
+<arg name="y_pos" default="8.0"/>
 <arg name="z_pos" default="0.0"/>
-<arg name="yaw" default="1.57"/>
+<arg name="yaw" default="0.0"/>
 <arg name="use_gui" default="true"/>
 
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find final_project)/world/final_project.world"/>
     <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="false"/>
+    <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="$(arg use_gui)"/>
     <arg name="headless" value="true"/>
     <arg name="debug" value="false"/>
