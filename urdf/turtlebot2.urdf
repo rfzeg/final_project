@@ -475,8 +475,8 @@
          <alwaysOn>true</alwaysOn>
          <updateRate>50</updateRate>
          <publishTf>true</publishTf><!-- If true, advertize nav_msgs::Odometry on <odometryTopic> and publish it -->
-         <leftJoint>wheel_right_joint</leftJoint>
-         <rightJoint>wheel_left_joint</rightJoint>
+         <leftJoint>wheel_left_joint</leftJoint>
+         <rightJoint>wheel_right_joint</rightJoint>
          <wheelSeparation>.230</wheelSeparation>
          <wheelDiameter>0.070</wheelDiameter>
          <torque>5.0</torque>
