@@ -486,7 +486,7 @@
          <odometryTopic>/odom</odometryTopic> <!-- relative/name ,  /global/name  -->
          <odometryFrame>/odom</odometryFrame>
          <robotBaseFrame>/base_footprint</robotBaseFrame>
-         <publishOdomTF>true</publishOdomTF><!-- If both this and publishTf are true, send robotBaseFrame-to-odometryFrame transforms -->
+         <publishOdomTF>false</publishOdomTF><!-- If both this and publishTf are true, send robotBaseFrame-to-odometryFrame transforms -->
          <publishWheelJointState>true</publishWheelJointState>
         <!-- Set to true to publish transforms for the wheel links, defaults to false -->
          <publishWheelTF>false</publishWheelTF>
@@ -1168,7 +1168,8 @@
       <bodyName>base_link</bodyName>
       <!-- in a real robot must be the link of the gps device, not the base_link or base_footprint -->
       <frameId>base_link</frameId>
-      <topicName>/navsat/fix</topicName>
+      <topicName>navsat/fix</topicName>
+      <velocityTopicName>navsat/vel</velocityTopicName>
       <!-- The reference point that corresponds to the origin of the gazebo frame -->
       <referenceLatitude>49.9</referenceLatitude>
       <referenceLongitude>8.9</referenceLongitude>
@@ -1177,18 +1178,12 @@
       <!-- To set heading in ENU orientation (degrees) -->
       <!-- set to 90: IMU reads 0 facing magnetic north, not east -->
       <!-- If set to 90 there is no need to set yaw_offset on navsat_transform_node -->
-      <referenceHeading>90</referenceHeading>
-      <velocityTopicName>fix_velocity</velocityTopicName>
+      <referenceHeading>0</referenceHeading>
       <offset>0 0 0</offset>
       <drift>0.0001 0.0001 0.0001</drift>
-      <!--<drift>0.0001 0.0001 0.0001</drift>-->
-      <!--<drift>0.3 0.3 0.3</drift>-->
       <driftFrequency>0.0 0.0 0.0</driftFrequency>
-      <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
-      <!--<gaussianNoise>0.00001 0.00001 0.00001</gaussianNoise>-->
       <gaussianNoise>0.00000000000000000001 0.00000000000000000001 0.00000000000000000001</gaussianNoise> <!-- this is std. dev. not var.-->
       <velocityDrift>0.00001 0.00001 0.00001</velocityDrift>
-      <!--<velocityGaussianNoise>0.1 0.1 0.1</velocityGaussianNoise>-->
       <velocityDriftFrequency>0 0 0</velocityDriftFrequency>
       <velocityGaussianNoise>0.00001 0.00001 0.00001</velocityGaussianNoise>
       <velocityOffset>0 0 0</velocityOffset>
