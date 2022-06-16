@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Top-level launch file for final project design nr.2 -->
+<!-- Top-level launch file for fusing GPS + IMU + Wheel Odometry --> 
+<!-- It uses two EKF nodes to create an improved relative/local and absolute/global estimates -->
 
 <launch>
 
