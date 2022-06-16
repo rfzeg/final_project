@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Top-level launch file for Design nr.3, -->
+<!-- Top-level launch file for fusing AMCL + IMU + Wheel Odometry -->
+<!-- It uses the EKF algorithm to fuse wheel odometry with IMU data -->
+<!-- It creates an improved odometry estimate (local pose estimation) for AMCL -->
 
 <launch>
 
